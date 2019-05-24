@@ -1,0 +1,43 @@
+<div class="col-sm-12 container" style="padding:20px;">
+  <div class="panel panel-primary">
+    <!-- <div class="panel-heading">Product List</div> -->
+    <div class="panel-body fixed-panel">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Product</th>
+              <th>Code</th>
+              <th>Price</th>
+              <!-- <th>Available</th> -->
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of productItems">
+              <td>{{ item.product.productname }}</td>
+              <td>{{ item.product.code }}</td>
+              <td>{{ item.product.price | currency: "USD":true:"1.2-2" }}</td>
+              <td>
+                <select [(ngModel)]="item.qty">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </td>
+              <!-- <td>{{product.available - product.qty}}</td> -->
+              <td>
+                <a class="btn btn-primary" (click)="addToCart(item)">Add</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a class="btn btn-primary" (click)="checkoutToCart()"
+          >Checkout To Cart</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
