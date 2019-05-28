@@ -94,7 +94,12 @@
           <input type="checkbox" checked="checked" name="sameadr" /> Shipping
           address same as billing
         </label>
-        <input type="submit" value="Continue to checkout" class="btn" />
+        <input
+          type="submit"
+          value="Continue to checkout"
+          class="btn"
+          (click)="checkOut()"
+        />
       </form>
     </div>
   </div>
@@ -118,7 +123,7 @@
         </a>
 
         <span class="price">
-          {{ item.qty | number: "3.1-5" }} - ${{
+          {{ item.qty }} - ${{
             item.product.price * item.qty | number: "3.1-5"
           }}</span
         >
